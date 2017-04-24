@@ -1,0 +1,1 @@
+$locationProvider.html5Mode(true);

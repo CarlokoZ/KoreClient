@@ -1,0 +1,109 @@
+[
+      { 
+        "id":         "",
+        "name":       "Ang Shop",
+        "language":   "Angular 2",
+        "technology": "jQuery",
+        "data":       "In-memory-DB",
+        "host":       "Winhost",
+        "img1" :      "./app/imgs/angular.png",  
+        "img2" :      "./app/imgs/jquery.png",   
+        "img3" :      "./app/imgs/winhost1.png",  
+//        "link1" :   "https://mingjing2015.github.io/",  
+        "link1" :      "http://mingjing2637.com/angshop/",  
+        "link2" :      "https://github.com/MingJing2015/angShop-Codes/tree/master/new%20src"
+      },
+      { 
+        "id":         "",
+        "name":       "Asp Shop",
+        "language":   "Asp.Net",
+        "technology": "Frameworks",
+        "data":       "SQL Server",
+        "host":       "winhost, Azure",
+        "img1" :      "./app/imgs/aspnet.png",  
+        "img2" :      "./app/imgs/framework.png",   
+        "img3" :      "./app/imgs/azure.png",
+        "link1" :      "http://www.mingjing2637.com/aspshop",  
+        "link2" :      "https://github.com/MingJing2015/angShop-Codes/tree/master/asp%20Shop%20codes"  
+      },
+      { 
+        "id":         "",
+        "name":       "PHP Shop",
+        "language":   "PHP",
+        "technology": "ThinkPHP",
+        "data":       "MySQL, Apache",
+        "host":       "winhost",
+        "img1" :      "./app/imgs/php.png",  
+        "img2" :      "./app/imgs/phpmyadmin.png",   
+        "img3" :      "./app/imgs/cookie.png",
+        "link1" :      "http://www.mingjing2637.com/shop/web",  
+        "link2" :      "https://github.com/MingJing2015/angShop-Codes/tree/master/PHP%20Shop%20codes"
+      },
+      { 
+        "id":         "",
+        "name":       "Ming's Blog",
+        "language":   "PHP",
+        "technology": "Bootstrap",
+        "data":       "MySQL",
+        "host":       "winhost, 000web",
+        "img1" :      "./app/imgs/bootstrap.png",  
+        "img2" :      "./app/imgs/html5.png",   
+        "img3" :      "./app/imgs/cart.png",  
+        "link1" :      "http://www.mingjing2637.com/blog/",  
+        "link2" :      "https://github.com/MingJing2015/angShop-Codes/tree/master/Blog%20codes/Blog-codes"
+      },
+      {
+        "id":         "",
+        "name":       "Game",
+        "language":   "javascript",
+        "technology": "jQuery",
+        "data":       "In-memory-DB",
+        "host":       "Azure",
+        "img1" :      "./app/imgs/github.png",  
+        "img2" :      "./app/imgs/bigdata.png",   
+        "img3" :      "./app/imgs/amazon.png",
+        "link1" :      "http://aspshop.azurewebsites.net/",  
+        "link2" :      "https://mingjing2015.github.io/"
+      },
+      { 
+        "id":         "",
+        "name":       "Git Shop",
+        "language":   "Asp.Net",
+        "technology": "First Code",
+        "data":       "SQL Server",
+        "host":       "Github.io",
+        "img1" :      "./app/imgs/meanjs.png",  
+        "img2" :      "./app/imgs/javascript.png",   
+        "img3" :      "./app/imgs/iphoneios.png",
+
+        "link1" :      "https://mingjing2015.github.io/",  
+        "link2" :      "https://github.com/MingJing2015/angShop-Codes/tree/master/asp%20Shop%20codes"
+      },
+      { 
+        "id":         "#myModal",
+        "name":       "Andro Shop",
+        "language":   "Java",
+        "technology": "Android Studio",
+        "data":       "SQLite",
+        "host":       "iPhone, emulator",
+        "img1" :      "./app/imgs/mongodb.png",  
+        "img2" :      "./app/imgs/sqlite.png",   
+        "img3" :      "./app/imgs/grunt.png",
+        "link1" :      "http://www.mingjing2637.com/blog/",  
+        "link2" :      "https://github.com/MingJing2015/angShop-Codes/tree/master/Blog%20codes/Blog-codes"
+      },
+      { 
+        "id":         "",
+        "name":       "iOS Shop",
+        "language":   "Swift, Xcode",
+        "technology": "Objective-C",
+        "data":       "In-memory-DB",
+        "host":       "winhost, Github.io",
+        "img1" :      "./app/imgs/android.png",  
+        "img2" :      "./app/imgs/nodejs.png",   
+        "img3" :      "./app/imgs/winhost1.png",
+        "link1" :      "http://www.mingjing2637.com/blog/",  
+        "link2" :      "https://github.com/MingJing2015/angShop-Codes/tree/master/Blog%20codes/Blog-codes"
+      }
+    
+]

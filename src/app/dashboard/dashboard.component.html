@@ -1,0 +1,37 @@
+
+<!--<h1>Dashboard..</h1>-->
+
+<!--<input type="file" id="fileElem" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
+<a href="#" id="fileSelect">Select some files</a> 
+<div id="fileList">
+  <p>No files selected!</p>
+</div>-->
+
+<div class="container">
+<div class="row" id="list1">
+  <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12" >
+    <div class="thumbnail">
+      <div class="caption">
+        <!--<h4>Products Information from API ( https://evening-wave-37007.herokuapp.com/api/products )</h4>-->
+        <h3>Upload files listing from API <small> http://www.mingjing2637.com/KoreFtpApi/api/upload</small></h3>
+      </div>
+      <br/>
+      <table class="table table-striped">
+        <tr>
+          <th click="orderByMe('goods_id')">File Name </th>
+          <th ng-click="orderByMe('goods_name')">FullPath</th>
+        </tr>
+        <tr *ngFor="let item of fileItemsList ">
+
+          <td align="left">{{item.OriginalPath}}</td>
+          <td align="left">{{item.FullPath}}</td>
+        </tr>
+      </table>
+      <p>
+        <button type="button" class="btn btn-outline-primary" (click)="goBack()">Go back</button>
+        <button type="button" class="btn btn-outline-primary" (click)="refresh()">Refresh</button>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
