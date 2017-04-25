@@ -162,4 +162,5 @@ export class DashboardComponent implements OnInit {
         reader.readAsText(input.files[index]);
     };
   }
+  
 }

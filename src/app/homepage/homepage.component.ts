@@ -150,6 +150,10 @@ export class HomepageComponent {
         });
     }   
 
+
+      myText;   // For show file content ...
+      myFilename;
+
     // From confirm button  ============  Show File infomation
     handleFileSelect(evt) {
 
@@ -157,9 +161,11 @@ export class HomepageComponent {
         var file = evt; // FileList object is file, now use _file
         console.log(file);
 
+        this.myFilename = file.name;
+
         // Only process image files.
-        //if (!file.type.match('image*')) {   // ????
-        if (file.type.toLowerCase().includes('image')) {   // ????
+        //if (!file.type.match('image*')) {   
+        if (file.type.toLowerCase().includes('image')) {   
 
             var reader = new FileReader();
 
@@ -176,11 +182,17 @@ export class HomepageComponent {
 
             // Read in the image file as a data URL.
             reader.readAsDataURL(file);
-        }
+        }else{
 
-
-
-  }
+            let reader = new FileReader();
+            reader.onload = () => {
+                // this 'text' is the content of the file
+                this.myText = reader.result.split("\n");
+                console.log(this.myText);
+            }
+            reader.readAsText(file);
+        };
+    }
 }
 
 

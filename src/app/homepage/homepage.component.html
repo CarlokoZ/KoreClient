@@ -94,11 +94,10 @@
                         <!-- makeFileRequest Way Button  -->
                         <!--<button type="button" class="btn btn-info btn-xs"
                                 (click)="uploadOneItem(item?.file)" [disabled]="item.isReady || item.isUploading || item.isSuccess">
-
                                 (click)="uploadOneItem(item?._file)" [disabled]="item.isReady || item.isUploading || item.isSuccess"> _file important **
-
                             <span class="glyphicon glyphicon-list"></span> Upload with Confirm
                         </button>-->
+
                         <button type="button" class="btn btn-info btn-xs"
                                 (click)="handleFileSelect(item?._file)" [disabled]="item.isReady || item.isUploading || item.isSuccess">
                             <span class="glyphicon glyphicon-list"></span> Show it
@@ -130,7 +129,6 @@
                 </button>
 
                 <!--<button type="button" (click)="upload()"> ngx-uploader all </button>-->
-
                 <!--<button type="button" class="btn btn-info btn-s"
                         (click)="upload()" [disabled]="!uploader.getNotUploadedItems().length">
                     <span class="glyphicon glyphicon-upload"></span> ngx-Upload all
@@ -141,16 +139,33 @@
     </div>
 </div>
 
-<object ID=data classid="clsid:333C7BC4-460F-11D0-BC04-0080C7055A83">
-  <param nAme="DataURL" value="C:\Users\Ming Mac\Desktop\sample.csv">
-  <param nAme="UseHeader" value="true">
-</object>
+<div class="container">
+<div class="row" id="list1">
 
-<output id="list"></output>      
+    <div class="col-xs-12 col-sm-5 col-lg-5 col-md-5" *ngIf = myFilename>
+        <div class="thumbnail">
+        <div class="caption">
+            <h3>File name: [ {{myFilename}} ]</h3>
+            </div>
+            <table class="table table-striped">
+                <!--<tr>
+                    <th>Head1</th>
+                    <th>Head2</th>
+                    <th>Head3</th>
+                </tr>-->
+                <tr *ngFor="let item of myText">
+                    <td  *ngFor="let item1 of item.split(',')">{{item1}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-<!--<app-filedetail [myFile]="selectedFile">
-</app-filedetail>-->
-
+    <div class="col-xs-12 col-sm-3 col-lg-3 col-md-3" >
+        <output id="list" class="col-xs-12 col-sm-3 col-lg-3 col-md-3"></output>     
+    </div>
+ 
+     </div>
+</div>
 <script src="./app/imgs/jquery-1.10.2.min.js"></script>
 <script src="./app/imgs/bootstrap.min.js"></script>
 
