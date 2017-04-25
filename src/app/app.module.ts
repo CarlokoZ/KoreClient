@@ -11,12 +11,14 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { FileUploadModule } from 'ng2-file-upload';
+import { FiledetailComponent } from './filedetail/filedetail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    DashboardComponent
+    DashboardComponent,
+    FiledetailComponent
   ],
 
   imports: [

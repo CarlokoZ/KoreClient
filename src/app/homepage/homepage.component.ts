@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
-
+import { Router }            from '@angular/router';
 
 import { RequestOptions, Request, Headers, RequestMethod} from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
+// import '../js/myscript';
 
-const URL_UPLOAD = 'http://www.mingjing2637.com/KoreFtpApi/api/upload/';
-//const URL_UPLOAD = 'hhttp://localhost:16818/api/upload/';
+//const URL_UPLOAD = 'http://www.mingjing2637.com/KoreFtpApi/api/upload/';
+const URL_UPLOAD = 'http://localhost:16818/api/upload/';
 
 @Component({
   selector: 'app-homepage',
@@ -21,22 +22,30 @@ export class HomepageComponent {
   public hasBaseDropZoneOver:boolean = false;
   public hasAnotherDropZoneOver:boolean = false;
 
+    selectedFile: File;
+
+    onSelect(myFile: File): void {
+        this.selectedFile = myFile;
+  }
+
   public fileOverBase(e:any):void {
     this.hasBaseDropZoneOver = e;
+    console.log(e);
+    this.uploader.queue.map(r=>{console.log(r)})
     //this.uploader.queue.map(r=>{console.log(r._file)})
   }
 
   public fileOverAnother(e:any):void {
     this.hasAnotherDropZoneOver = e;
+    console.log(e);
     //this.uploader.queue.map(r=>{console.log(r._file)})
+    this.uploader.queue.map(r=>{console.log(r)})
   }
-
-
 
 // Uploader: ------ Local API Bad !!----------------------------------
     filesToUpload: Array<File>;
 
-    constructor() {
+    constructor(private router: Router) {
 
         // For makeFileRequest
         this.filesToUpload = [];
@@ -111,13 +120,19 @@ export class HomepageComponent {
             }
             xhr.open("POST", url, true);
             xhr.send(formData);
+             console.log(formData);
         });
     }
 
-    // load One Item Button : 
-    uploadOneItem(file : File) {
+    // load One Item Button :  Show File infomation
+    uploadOneItem(file : any) {
 
-        //console.log("in uploadOneItem File name: " + file.name);
+        // let link = ['/filedetail/filedetail', file];
+        // console.log("link : ", file);
+        // //console.log(file.formData);
+        // this.router.navigate(link);
+
+        console.log("in uploadOneItem File name: " + file.name);
         this.filesToUpload = [];
         this.uploader.queue.map(r=>{ 
             if( r.file.name == file.name ){
@@ -134,6 +149,38 @@ export class HomepageComponent {
             console.error(error);
         });
     }   
+
+    // From confirm button  ============  Show File infomation
+    handleFileSelect(evt) {
+
+        //var files = evt.target.files; // FileList object
+        var file = evt; // FileList object is file, now use _file
+        console.log(file);
+
+        // Only process image files.
+        //if (!file.type.match('image*')) {   // ????
+        if (file.type.toLowerCase().includes('image')) {   // ????
+
+            var reader = new FileReader();
+
+            // Closure to capture the file information.
+            reader.onload = (function(theFile) {
+                return function(e) {
+                // Render thumbnail.
+                var span = document.createElement('span');
+                span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                                    '" title="', (theFile.name), '"/>'].join('');
+                document.getElementById('list').insertBefore(span, null);
+                };
+            })(file);
+
+            // Read in the image file as a data URL.
+            reader.readAsDataURL(file);
+        }
+
+
+
+  }
 }
 
 
