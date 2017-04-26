@@ -15,46 +15,13 @@ export class DashboardComponent implements OnInit {
   private dataService: DataService;
   private fileItemsList: Array<FileItem>;
 
+  private myText : any;  
+
   constructor(_dataService: DataService,
               private location: Location,
               private http: Http
   ) {
-      this.dataService = _dataService;
-
-      // Listen to click events in the component
-        // renderer.listenGlobal('files', 'change', (evt) => {
-    //     renderer.listen ('files', 'change', (evt) => {
-            
-    //         // Do something with 'event'
-    //         var files = evt.target.files; // FileList object
-
-    //         console.log(files);
-
-    //             // Loop through the FileList and render image files as thumbnails.
-    //             for (var i = 0, f; f = files[i]; i++) {
-
-    //             // Only process image files.
-    //             //if (!f.type.match('image.*')) {
-    //             //  continue;
-    //             //}
-
-    //             var reader = new FileReader();
-
-    //             // Closure to capture the file information.
-    //             reader.onload = (function(theFile) {
-    //                 return function(e) {
-    //                 // Render thumbnail.
-    //                 var span = document.createElement('span');
-    //                 span.innerHTML = ['<img class="thumb" src="', e.target.result,
-    //                                     '" title="', theFile.name, '"/>'].join('');
-    //                 document.getElementById('list').insertBefore(span, null);
-    //                 };
-    //             })(f);
-
-    //             // Read in the image file as a data URL.
-    //             reader.readAsDataURL(f);
-    //             }
-    // })
+        this.dataService = _dataService;
    }
 
   ngOnInit() {
@@ -111,7 +78,7 @@ export class DashboardComponent implements OnInit {
         this.getFilesList();
     }
 
-// Good Picture
+// Good Picture :   if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
     handleFileSelect(evt) {
 
         var files = evt.target.files; // FileList object
@@ -144,23 +111,55 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-    myText;
 
+// Good Text : 
     handleFileSelectCSV(event) {
 
        let input = event.target;
 
         console.log(input.files);
        
-    for (var index = 0; index < input.files.length; index++) {
-        let reader = new FileReader();
-        reader.onload = () => {
-            // this 'text' is the content of the file
-            this.myText = reader.result.split("\n");
-            console.log(this.myText);
-        }
-        reader.readAsText(input.files[index]);
-    };
-  }
-  
+        for (var index = 0; index < input.files.length; index++) {
+
+            let reader = new FileReader();
+            reader.onload = () => {
+                
+                // this 'text' is the content of the file
+                this.myText = reader.result.split("\n");
+                console.log(this.myText);
+            }
+            reader.readAsText(input.files[index]);
+        };
+    }
+
+// PDF : 
+    handleFileSelectPDF(event) {
+
+        let files = event.target;
+    }
 }
+
+
+
+// This code simply inserts an image that was read from disk into a page. Since the data URI contains all of the image data, 
+// it can be passed directly into the src attribute of an image and displayed on the page. 
+// You could, alternately, load the image and draw it onto a <canvas> as well:
+
+// var reader = new FileReader();
+// reader.onload = function(event) {
+//     var dataUri = event.target.result,
+//         context = document.getElementById("mycanvas").getContext("2d"),
+//         img     = new Image();
+
+//     // wait until the image has been fully processed
+//     img.onload = function() {
+//         context.drawImage(img, 100, 100);
+//     };
+//     img.src = dataUri;
+// };
+
+// reader.onerror = function(event) {
+//     console.error("File could not be read! Code " + event.target.error.code);
+// };
+
+// reader.readAsDataURL(file);

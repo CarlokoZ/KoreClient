@@ -6,8 +6,8 @@ import { RequestOptions, Request, Headers, RequestMethod} from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 // import '../js/myscript';
 
-//const URL_UPLOAD = 'http://www.mingjing2637.com/KoreFtpApi/api/upload/';
-const URL_UPLOAD = 'http://localhost:16818/api/upload/';
+const URL_UPLOAD = 'http://www.mingjing2637.com/KoreFtpApi/api/upload/';
+//const URL_UPLOAD = 'http://localhost:16818/api/upload/';
 
 @Component({
   selector: 'app-homepage',
@@ -161,11 +161,11 @@ export class HomepageComponent {
         var file = evt; // FileList object is file, now use _file
         console.log(file);
 
-        this.myFilename = file.name;
+        //this.myFilename = file.name;
 
         // Only process image files.
         //if (!file.type.match('image*')) {   
-        if (file.type.toLowerCase().includes('image')) {   
+        if (file.type.toLowerCase().includes('image') || file.type.toLowerCase().includes('pdf')) {   
 
             var reader = new FileReader();
 
@@ -182,8 +182,24 @@ export class HomepageComponent {
 
             // Read in the image file as a data URL.
             reader.readAsDataURL(file);
-        }else{
+        } else if ( file.type.toLowerCase().includes('pdf') ){
 
+            if (!file.length) {
+                return;
+            } else {
+
+                console.log(window.URL.createObjectURL(file));
+
+                var span = document.createElement('span');
+                span.innerHTML = ['<img class="thumb" src="', window.URL.createObjectURL(file),
+                                    '" title="', (file.name), '"/>'].join('');
+                document.getElementById('list').insertBefore(span, null);
+
+            }
+        }
+        else{
+
+            this.myFilename = file.name;
             let reader = new FileReader();
             reader.onload = () => {
                 // this 'text' is the content of the file

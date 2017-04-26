@@ -6,10 +6,10 @@ input[type="file"] {
 .custom-file-upload {
     border: 3px dotted gray;
     display: inline-block;
-    padding: 13px 22px;
+    /*padding: 13px 22px;*/
     cursor: pointer;
-    width: 250px;
-    height: 70px;
+    /*width: 250px;
+    height: 70px;*/
     background: lightgray;
     border-radius: 5px;
 }

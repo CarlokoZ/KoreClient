@@ -1,11 +1,7 @@
 
 <!--<h1>Dashboard..</h1>-->
 
-<!--<input type="file" id="fileElem" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
-<a href="#" id="fileSelect">Select some files</a> 
-<div id="fileList">
-  <p>No files selected!</p>
-</div>-->
+
 
 <div class="container">
 <div class="row" id="list1">
@@ -13,13 +9,13 @@
     <div class="thumbnail">
       <div class="caption">
         <!--<h4>Products Information from API ( https://evening-wave-37007.herokuapp.com/api/products )</h4>-->
-        <h3>Upload files listing from API <small> http://www.mingjing2637.com/KoreFtpApi/api/upload</small></h3>
+        <h3>Uploaded files listing from API <small> http://www.mingjing2637.com/KoreFtpApi/api/upload</small></h3>
       </div>
       <br/>
       <table class="table table-striped">
         <tr>
           <th click="orderByMe('goods_id')">File Name </th>
-          <th ng-click="orderByMe('goods_name')">FullPath</th>
+          <th ng-click="orderByMe('goods_name')">Full Path</th>
         </tr>
         <tr *ngFor="let item of fileItemsList ">
 
@@ -41,24 +37,24 @@
 <div class="row" id="list1">
   <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12" >
     <div class="thumbnail">
-      <div class="caption">
+      <div class="caption"><h4>Test button </h4>
 
-<input type="file" id="files" name="files[]" multiple (change)="handleFileSelectCSV($event)" />
-  <output id="list"></output>        
+      <input type="file" id="files" name="files[]" multiple (change)="handleFileSelectCSV($event)" />
+        <output id="list"></output>        
 
-     <table class="table table-striped">
-        <tr>
+        <table class="table table-striped">
+        <!--<tr>
           <th>Head1</th>
           <th>Head2</th>
           <th>Head3</th>
-        </tr>
+        </tr>-->
         <tr *ngFor="let item of myText">
 
           <td  *ngFor="let item1 of item.split(',')">{{item1}}</td>
 
         </tr>
       </table>
-        </div>
+    </div>
   </div>
 </div>
 </div>
